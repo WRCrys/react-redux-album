@@ -6,10 +6,12 @@ import api from '../../../services/api';
 import { loadSuccess, loadFailure } from './action';
 
 export function* loadPhotos() {
-  debugger;
   try {
     const response = yield call(api.get, 'photos');
+    console.dir('response', response);
     yield put(loadSuccess(response.data));
+
+    debugger;
   } catch (error) {
     const erro = error;
     console.log(erro);

@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/jsx-filename-extension */
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import AlbumInfo from './components/AlbumInfo';
-import Home from './pages/Home';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AlbumInfo from "./components/AlbumInfo";
+import Home from "./pages/Home";
 
 const Routes = () => (
   <BrowserRouter>

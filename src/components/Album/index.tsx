@@ -28,7 +28,12 @@ interface DispatchProps {
   loadRequest(): void;
 }
 
-type Props = StateProps & DispatchProps;
+interface GlobalStates {
+  albums: any,
+  photos: any,
+}
+
+type Props = StateProps & DispatchProps & GlobalStates;
 
 class ItemAlbum extends Component<Props> {
   get() {
@@ -37,6 +42,8 @@ class ItemAlbum extends Component<Props> {
   }
 
   render() {
+    console.log(this.props.photos);
+    console.log(this.props.album.id);
     return (
       <Card className="root">
         <CardActionArea>
@@ -48,7 +55,7 @@ class ItemAlbum extends Component<Props> {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="medium" color="primary" onClick={() => this.get()} href="/AlbumInfo">
+          <Button size="medium" color="primary" onClick={() => this.get()}>
             Open Album
           </Button>
         </CardActions>
