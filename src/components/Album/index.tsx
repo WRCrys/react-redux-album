@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
@@ -16,6 +17,7 @@ import { ApplicationState } from '../../store';
 import './styles/album.css';
 import { Album } from '../../store/ducks/albums/types';
 import * as PhotoActions from '../../store/ducks/photos/action';
+import { Photo } from '../../store/ducks/photos/types';
 
 interface StateProps {
   album: Album,
@@ -26,9 +28,14 @@ interface DispatchProps {
   loadRequest(): void;
 }
 
-type Props = StateProps;
+type Props = StateProps & DispatchProps;
 
 class ItemAlbum extends Component<Props> {
+  get() {
+    const { loadRequest } = this.props;
+    loadRequest();
+  }
+
   render() {
     return (
       <Card className="root">
@@ -41,7 +48,7 @@ class ItemAlbum extends Component<Props> {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="medium" color="primary" onClick={() => onLoadPhotoClick()} href="/AlbumInfo">
+          <Button size="medium" color="primary" onClick={() => this.get()} href="/AlbumInfo">
             Open Album
           </Button>
         </CardActions>
@@ -52,12 +59,9 @@ class ItemAlbum extends Component<Props> {
 
 const mapStateToProps = (state: ApplicationState) => ({
   albums: state.albums,
+  photos: state.photos,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onLoadPhotoClick: () => {
-    dispatch(PhotoActions.loadRequest());
-  },
-});
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(PhotoActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemAlbum);
