@@ -2,12 +2,12 @@
 /* eslint-disable import/extensions */
 import { call, put } from 'redux-saga/effects';
 import api from '../../../services/api';
-import { loadFailure, loadSuccess } from './action';
+import { loadSuccess, loadFailure } from './action';
 
-export function* loadAlbums() {
+export function* loadPhotos() {
   try {
-    const respose = yield call(api.get, 'albums');
-    yield put(loadSuccess(respose.data));
+    const response = yield call(api.get, 'photos');
+    yield put(loadSuccess(response.data));
   } catch (error) {
     yield put(loadFailure());
   }

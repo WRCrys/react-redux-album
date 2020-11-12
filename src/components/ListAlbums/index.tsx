@@ -37,7 +37,7 @@ class ListAlbums extends Component<Props> {
         <Grid container spacing={3}>
           {albums.map((a) => (
             <Grid item xs>
-              <AlbumComponent id={a.id} name={a.title} image={luffy} />
+              <AlbumComponent album={a} image={luffy} />
             </Grid>
           ))}
         </Grid>
