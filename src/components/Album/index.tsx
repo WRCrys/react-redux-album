@@ -42,6 +42,7 @@ class ItemAlbum extends Component<Props> {
 
   render() {
     // console.log(this.props.photos);
+
     return (
       <Card className="root">
         <CardActionArea>
@@ -54,6 +55,7 @@ class ItemAlbum extends Component<Props> {
         </CardActionArea>
         <CardActions>
           <Button size="medium" color="primary" href={`/AlbumInfo/${this.props.album.id}`}>
+
             Open Album
           </Button>
         </CardActions>
