@@ -17,26 +17,31 @@ import { ApplicationState } from '../../store';
 import './styles/album.css';
 import { Album } from '../../store/ducks/albums/types';
 import * as PhotoActions from '../../store/ducks/photos/action';
-import { Photo } from '../../store/ducks/photos/types';
 
 interface StateProps {
   album: Album,
   image: string,
 }
 
-interface DispatchProps {
-  loadRequest(): void;
-}
+// interface DispatchProps {
+//   loadRequest(): void;
+// }
 
-type Props = StateProps & DispatchProps;
+// interface GlobalState {
+//   albums: any,
+//   photos: any
+// }
+
+type Props = StateProps;
 
 class ItemAlbum extends Component<Props> {
-  get() {
-    const { loadRequest } = this.props;
-    loadRequest();
-  }
+  // get() {
+  //   const { loadRequest } = this.props;
+  //   loadRequest();
+  // }
 
   render() {
+    // console.log(this.props.photos);
     return (
       <Card className="root">
         <CardActionArea>
@@ -48,7 +53,7 @@ class ItemAlbum extends Component<Props> {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="medium" color="primary" onClick={() => this.get()} href="/AlbumInfo">
+          <Button size="medium" color="primary" href={`/AlbumInfo/${this.props.album.id}`}>
             Open Album
           </Button>
         </CardActions>
