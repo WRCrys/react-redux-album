@@ -1,0 +1,13 @@
+.main {
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.media-photo {
+  min-height: 150px;
+  min-width: 150px;
+}
+
+.title {
+  font-size: 10%;
+}

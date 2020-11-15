@@ -4,7 +4,7 @@ import { call, put } from 'redux-saga/effects';
 import api from '../../../services/api';
 import { loadFailure, loadSuccess } from './action';
 
-export function* load() {
+export function* loadAlbums() {
   try {
     const respose = yield call(api.get, 'albums');
     yield put(loadSuccess(respose.data));
