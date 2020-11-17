@@ -11,3 +11,13 @@
 .title {
   font-size: 10%;
 }
+
+.modal-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-image {
+  max-width: 90%;
+}

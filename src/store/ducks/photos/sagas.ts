@@ -10,8 +10,6 @@ export function* loadPhotos() {
     const response = yield call(api.get, 'photos');
     console.dir('response', response);
     yield put(loadSuccess(response.data));
-
-    debugger;
   } catch (error) {
     const erro = error;
     console.log(erro);

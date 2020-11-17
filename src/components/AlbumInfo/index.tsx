@@ -10,8 +10,8 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { Grid } from '@material-ui/core';
 import { ApplicationState } from '../../store';
 import { Photo } from '../../store/ducks/photos/types';
-import * as PhotoActions from '../../store/ducks/photos/action';
 import ItemPhoto from '../ItemPhoto';
+import * as PhotoActions from '../../store/ducks/photos/action';
 import Sun from '../../assets/sun.jpg';
 import './styles/albumInfo.css';
 
