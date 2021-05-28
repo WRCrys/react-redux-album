@@ -1,7 +1,11 @@
+/* eslint-disable import/extensions */
 import axios from 'axios';
+import { setEnvironment } from '../environments/index';
+
+const enviroment = setEnvironment();
 
 const api = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/',
+  baseURL: enviroment.Api.Url,
 });
 
 export default api;
